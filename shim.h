@@ -62,3 +62,4 @@ static void __inline__ bind_processor(int cpu)
 
 int grab_os_signals(int cpu, unsigned long ** ppid, int ** syscall);
 hw_event_t * shim_create_hw_events(int nr_hw_events, char **hw_event_names);
+int read_counters(unsigned long *p, hw_event_t *events, int nr_events);

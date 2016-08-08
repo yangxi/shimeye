@@ -15,6 +15,8 @@ volatile int *nr_syscall;
 //dump the data to output.
 //TODO: feed the data to a ipython drawing script.
 
+unsigned long perf_log[100];
+
 int
 main(int argc, char **argv)
 {
@@ -44,4 +46,11 @@ main(int argc, char **argv)
   bind_processor(running_cpu);
   perf_events = shim_create_hw_events(nr_counter, counter_names);
   //  grab_os_signals(target_cpu, &ppid, &nr_syscall);
+  for (int i=0; i<100; i++) {
+    int nr_read = read_counters(perf_log, perf_events, nr_counter);
+    for (int j=0; j<nr_read; j++){
+      printf("%lu,", perf_log[j]);
+    }
+    printf("\n");
+  }
 }

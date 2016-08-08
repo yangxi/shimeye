@@ -111,6 +111,7 @@ int read_counters(unsigned long *p, hw_event_t *events, int nr_events)
     p[ret++] = __builtin_ia32_rdpmc(events[i].index);
   }
   p[ret++] = rdtsc();
+  return ret;
 }
 
 int trustable(unsigned long *start, unsigned long *end, int lowpass, int highpass)
