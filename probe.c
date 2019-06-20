@@ -17,6 +17,12 @@ volatile int *nr_syscall;
 
 unsigned long perf_log[100];
 
+
+//probe -1 -1 frequency [counters...] monitor all cores from their paired SMT lanes.
+//probe -1 [0-NR_CPU) frequency [counters...] monitor all cores from a SMT lanes.
+//probe [0-NR_CPU) [0-NR_CPU) frequency [counters...] monitor the target core from the observer thread.
+
+
 int
 main(int argc, char **argv)
 {

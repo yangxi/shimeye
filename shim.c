@@ -3,6 +3,10 @@
 
 //we need os signal to harvest idle cycles
 
+int grab_task_signal(int cpu, unsigned long **ppid)
+{
+}
+
 int grab_os_signals(int cpu, unsigned long ** ppid, int ** syscall)
 {
   char buf[1024];
